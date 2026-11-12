@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>狗头集团 GODT Group — 格斗 · 体能 · 防身训练机构</title>
+<meta name="description" content="狗头集团 GODT Group：站立打击、地面缠斗、力量体能与青少年防身训练。德阳三座训练馆，小班制，以对抗检验训练成果。">
+<link rel="icon" type="image/png" href="assets/logo-dog.png">
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Oswald:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap">
+<style>
+:root{
+  --bg:#0b0a09;
+  --bg2:#100e0c;
+  --panel:#15120f;
+  --panel2:#1b1713;
+  --line:#2c2620;
+  --line2:#3a322a;
+  --ink:#f3ede2;
+  --mut:#a99d8c;
+  --dim:#776d60;
+  --red:#e04327;
+  --red-deep:#a82a16;
+  --gold:#c8944b;
+  --font-en:"Oswald","Noto Sans SC",Impact,sans-serif;
+  --font-cn:"Noto Sans SC","Microsoft YaHei",sans-serif;
+  --max:1240px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-cn);
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+::selection{background:var(--red);color:#fff}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#0d0b0a}
+::-webkit-scrollbar-thumb{background:#332b24;border:2px solid #0d0b0a}
+::-webkit-scrollbar-thumb:hover{background:var(--red-deep)}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+/* 纸张颗粒 + 暗角，避免纯色平板感 */
+body::before{
+  content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.34;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay;
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(120vw 80vh at 50% 0%,transparent 40%,rgba(0,0,0,.42) 100%);
+}
+
+/* ---------- 通用 ---------- */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(18px,4vw,40px);position:relative;z-index:2}
+.kicker{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-en);font-size:12px;font-weight:500;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--mut);
+}
+.kicker::before{content:"";width:26px;height:2px;background:var(--red);display:block}
+.sec-num{
+  font-family:var(--font-en);font-size:13px;font-weight:600;letter-spacing:.2em;color:var(--red);
+  display:flex;align-items:center;gap:12px;
+}
+.sec-num i{display:block;width:34px;height:1px;background:var(--line2);font-style:normal}
+h2.title{
+  font-family:var(--font-cn);font-size:clamp(28px,3.6vw,46px);font-weight:900;
+  letter-spacing:-.01em;line-height:1.18;margin:14px 0 0;
+}
+h2.title em{font-family:var(--font-en);font-style:normal;font-weight:600;color:var(--red);letter-spacing:.02em}
+.lead{color:var(--mut);font-size:15.5px;line-height:1.95;font-weight:300}
+.divider{height:1px;background:var(--line);margin:64px 0}
+
+/* ---------- 顶部导航 ---------- */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  transition:background .35s,border-color .35s,box-shadow .35s,padding .35s;
+  border-bottom:1px solid transparent;
+}
+#nav.solid{
+  background:rgba(10,9,8,.92);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom-color:var(--line);
+}
+.nav-inner{
+  max-width:var(--max);margin:0 auto;padding:0 clamp(18px,4vw,40px);
+  height:76px;display:flex;align-items:center;gap:28px;
+}
+.brand{display:flex;align-items:center;gap:11px;flex:none}
+.brand img{
+  width:44px;height:44px;object-fit:contain;mix-blend-mode:lighten;
+  filter:contrast(1.05) saturate(1.05);
+}
+.brand .bt{display:flex;flex-direction:column;line-height:1.05}
+.brand .bt b{font-size:17px;font-weight:900;letter-spacing:.14em}
+.brand .bt span{font-family:var(--font-en);font-size:9.5px;font-weight:500;letter-spacing:.32em;color:var(--gold);margin-top:3px}
+.nav-links{display:flex;align-items:center;gap:26px;margin-left:auto}
+.nav-links a{
+  font-size:13.5px;color:#cfc5b6;letter-spacing:.03em;position:relative;padding:6px 0;
+  transition:color .25s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--red);
+  transition:width .3s;
+}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{width:100%}
+.nav-tel{
+  display:none;align-items:center;gap:8px;font-family:var(--font-en);font-size:13px;
+  letter-spacing:.06em;color:var(--gold);flex:none;
+}
+@media(min-width:1080px){.nav-tel{display:flex}}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-size:14px;font-weight:500;letter-spacing:.04em;
+  padding:12px 24px;border:1px solid transparent;transition:.28s;white-space:nowrap;
+  position:relative;
+}
+.btn-red{background:var(--red);color:#fff;border-color:var(--red)}
+.btn-red:hover{background:#f15231;border-color:#f15231;transform:translateY(-1px);box-shadow:0 10px 26px rgba(224,67,39,.28)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:rgba(243,237,226,.28)}
+.btn-ghost:hover{border-color:var(--ink);background:rgba(243,237,226,.06)}
+.btn svg{width:15px;height:15px}
+.nav-cta{margin-left:6px}
+#burger{
+  display:none;width:42px;height:42px;margin-left:auto;background:transparent;border:1px solid var(--line2);
+  align-items:center;justify-content:center;flex-direction:column;gap:5px;flex:none;
+}
+#burger span{display:block;width:18px;height:2px;background:var(--ink);transition:.3s}
+#burger.on span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+#burger.on span:nth-child(2){opacity:0}
+#burger.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+#mnav{
+  position:fixed;top:76px;left:0;right:0;bottom:0;z-index:49;
+  background:rgba(10,9,8,.985);backdrop-filter:blur(16px);
+  padding:28px clamp(18px,5vw,34px);display:none;flex-direction:column;
+  overflow-y:auto;
+}
+#mnav.open{display:flex}
+#mnav a{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:17px 0;border-bottom:1px solid var(--line);font-size:16px;color:#d8cec0;
+}
+#mnav a span{font-family:var(--font-en);font-size:11px;letter-spacing:.2em;color:var(--dim)}
+#mnav .btn{margin-top:26px;justify-content:center}
+
+/* ---------- Hero ---------- */
+#top{
+  position:relative;min-height:900px;display:flex;flex-direction:column;justify-content:flex-end;
+  padding-top:120px;padding-bottom:0;overflow:hidden;
+}
+.hero-media{position:absolute;inset:0;z-index:0}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 38%}
+.hero-media::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(11,10,9,.86) 0%,rgba(11,10,9,.34) 34%,rgba(11,10,9,.62) 72%,var(--bg) 100%),
+    linear-gradient(90deg,rgba(11,10,9,.9) 0%,rgba(11,10,9,.42) 48%,rgba(11,10,9,.2) 100%);
+}
+.hero-inner{position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:12px;font-family:var(--font-en);
+  font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);
+  border:1px solid rgba(200,148,75,.32);padding:8px 16px;background:rgba(11,10,9,.4);
+}
+.hero-tag b{color:var(--ink);font-weight:600}
+.hero-title{
+  margin:26px 0 0;font-weight:900;
+  font-size:clamp(52px,8.6vw,132px);line-height:.94;letter-spacing:-.02em;
+  text-shadow:0 2px 40px rgba(0,0,0,.5);
+}
+.hero-title .line2{display:block;color:var(--ink)}
+.hero-title .strike{
+  position:relative;display:inline-block;color:var(--red);
+}
+.hero-sub{
+  margin:26px 0 0;max-width:620px;color:#d6ccbd;font-size:16px;line-height:1.95;font-weight:300;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:36px 0 0}
+.hero-foot{
+  position:relative;z-index:2;border-top:1px solid rgba(243,237,226,.14);
+  margin-top:clamp(44px,6vh,76px);
+  background:linear-gradient(180deg,rgba(10,9,8,.5),rgba(10,9,8,.86));
+}
+.stats{
+  max-width:var(--max);margin:0 auto;padding:0 clamp(18px,4vw,40px);
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.stat{padding:24px 24px 26px 0;border-right:1px solid rgba(243,237,226,.1)}
+.stat:nth-child(4){padding-right:0}
+.stat:last-child{border-right:0}
+.stat b{
+  display:block;font-family:var(--font-en);font-size:clamp(26px,2.9vw,40px);font-weight:600;
+  color:var(--ink);line-height:1;letter-spacing:.01em;white-space:nowrap;
+}
+.stat b small{font-size:.4em;font-weight:500;color:var(--gold);margin-left:5px;letter-spacing:.08em}
+.stat span{display:block;margin-top:9px;font-size:12px;color:var(--mut);letter-spacing:.1em;white-space:nowrap}
+.scroll-hint{
+  position:absolute;right:clamp(18px,4vw,40px);bottom:112px;z-index:2;
+  writing-mode:vertical-rl;font-family:var(--font-en);font-size:11px;letter-spacing:.34em;
+  color:rgba(243,237,226,.5);display:flex;align-items:center;gap:14px;
+}
+.scroll-hint::after{content:"";width:1px;height:52px;background:rgba(243,237,226,.3)}
+
+/* ---------- 标语条 ---------- */
+.strip{
+  position:relative;z-index:2;background:var(--red);overflow:hidden;
+  border-top:1px solid #f0563a;border-bottom:1px solid #8c2312;
+}
+.strip-track{display:flex;white-space:nowrap;animation:marq 34s linear infinite;width:max-content}
+.strip-item{
+  display:inline-flex;align-items:center;gap:22px;padding:13px 26px;
+  font-family:var(--font-en);font-size:13px;font-weight:500;letter-spacing:.22em;color:#fff;
+}
+.strip-item i{width:5px;height:5px;background:rgba(255,255,255,.6);border-radius:50%;flex:none;font-style:normal}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- 集团简介 ---------- */
+#about{padding:clamp(72px,9vw,120px) 0 0}
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:start}
+.about-copy{padding-top:6px}
+.about-copy .lead{margin-top:24px}
+.about-copy .lead + .lead{margin-top:16px}
+.principles{margin-top:42px;border-top:1px solid var(--line)}
+.principles li{
+  list-style:none;display:grid;grid-template-columns:34px 1fr;gap:16px;
+  padding:22px 0;border-bottom:1px solid var(--line);align-items:start;
+}
+.principles li b{font-family:var(--font-en);font-size:12px;font-weight:600;color:var(--red);letter-spacing:.16em;padding-top:4px}
+.principles li h3{font-size:16px;font-weight:700;letter-spacing:.02em}
+.principles li h3 em{font-family:var(--font-en);font-style:normal;color:var(--dim);font-size:11px;letter-spacing:.2em;margin-left:8px;font-weight:500}
+.principles li p{color:var(--mut);font-size:13.8px;line-height:1.85;margin-top:6px;font-weight:300}
+.about-media{position:relative}
+.about-media img{width:100%;height:clamp(360px,52vw,560px);object-fit:cover;filter:contrast(1.05) saturate(.92)}
+.about-media .cap{
+  position:absolute;left:0;bottom:0;right:0;padding:14px 18px;
+  background:linear-gradient(180deg,transparent,rgba(10,9,8,.9));
+  border-top:1px solid rgba(243,237,226,.12);
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+}
+.about-media .cap span{font-size:11.5px;letter-spacing:.16em;color:var(--mut)}
+.about-media .cap b{font-family:var(--font-en);font-size:11px;letter-spacing:.2em;color:var(--gold);font-weight:500}
+.about-media::before{
+  content:"";position:absolute;top:-10px;left:-10px;width:64px;height:64px;z-index:3;
+  border-top:2px solid var(--red);border-left:2px solid var(--red);
+}
+
+/* ---------- 管理层 / CEO ---------- */
+#ceo{padding:clamp(76px,9vw,124px) 0 0}
+.ceo-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(30px,5vw,70px);align-items:start}
+.ceo-media{position:relative;border:1px solid var(--line);overflow:hidden;background:#080706}
+.ceo-media img{
+  width:100%;height:clamp(360px,48vw,540px);object-fit:cover;object-position:center 32%;
+  filter:contrast(1.06) saturate(.88) brightness(.94);
+}
+.ceo-media::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(11,10,9,.18) 0%,transparent 34%,rgba(11,10,9,.9) 100%);
+}
+.ceo-media .sig{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;padding:16px 20px;
+  display:flex;align-items:flex-end;justify-content:space-between;gap:14px;
+}
+.ceo-media .sig b{font-size:15px;font-weight:900;letter-spacing:.06em;color:#fff}
+.ceo-media .sig span{font-family:var(--font-en);font-size:9.5px;letter-spacing:.22em;color:var(--gold);display:block;margin-top:4px}
+.ceo-media .sig em{font-family:var(--font-en);font-style:normal;font-size:10px;letter-spacing:.18em;color:rgba(243,237,226,.5)}
+.ceo-media .frame-corner{position:absolute;right:-1px;top:-1px;width:52px;height:52px;border-top:2px solid var(--red);border-right:2px solid var(--red);z-index:3}
+.ceo-copy .title{font-size:clamp(26px,3.3vw,42px)}
+.ceo-copy .lead{margin-top:22px}
+.ceo-copy .lead + .lead{margin-top:14px}
+.quote{
+  margin-top:32px;padding:24px 26px;border-left:3px solid var(--red);
+  background:linear-gradient(90deg,rgba(224,67,39,.09),transparent 78%);
+}
+.quote p{font-size:16px;line-height:1.9;color:#e8dfd2;font-weight:300}
+.quote p::before{content:"“";font-family:var(--font-en);font-size:26px;color:var(--red);line-height:0;vertical-align:-6px;margin-right:4px}
+.quote .who{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:11.5px;color:var(--dim);letter-spacing:.1em}
+.quote .who i{display:block;width:22px;height:1px;background:var(--line2);font-style:normal}
+.ceo-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px;border-top:1px solid var(--line);padding-top:22px}
+.ceo-facts .f b{display:block;font-family:var(--font-en);font-size:20px;font-weight:600;color:var(--ink);letter-spacing:.02em}
+.ceo-facts .f span{display:block;font-size:11px;color:var(--dim);margin-top:6px;letter-spacing:.08em}
+
+/* ---------- 通用板块头 ---------- */
+.sec-head{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:32px;
+  padding-bottom:26px;border-bottom:1px solid var(--line);margin-bottom:clamp(30px,4vw,52px);
+}
+.sec-head .l{max-width:640px}
+.sec-head .r{flex:none;text-align:right}
+.sec-head .r p{color:var(--dim);font-size:12.5px;line-height:1.9;max-width:300px}
+
+/* ---------- 训练体系 ---------- */
+#programs{padding:clamp(76px,9vw,124px) 0 0}
+.prog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,2.2vw,28px)}
+.prog{
+  position:relative;display:flex;flex-direction:column;
+  background:var(--panel);border:1px solid var(--line);overflow:hidden;
+  transition:border-color .35s,transform .35s;
+}
+.prog:hover{border-color:rgba(224,67,39,.45);transform:translateY(-3px)}
+.prog .ph{position:relative;overflow:hidden;height:clamp(210px,24vw,300px)}
+.prog .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1);filter:contrast(1.04) saturate(.9)}
+.prog:hover .ph img{transform:scale(1.045)}
+.prog .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,10,9,.1) 0%,rgba(11,10,9,.72) 100%)}
+.prog .ph .no{
+  position:absolute;left:20px;top:16px;z-index:2;
+  font-family:var(--font-en);font-size:12px;font-weight:600;letter-spacing:.18em;
+  color:#fff;padding:5px 10px;background:rgba(11,10,9,.6);border:1px solid rgba(255,255,255,.18);
+}
+.prog .ph .en{
+  position:absolute;left:20px;bottom:14px;z-index:2;
+  font-family:var(--font-en);font-size:11px;letter-spacing:.26em;color:rgba(255,255,255,.72);text-transform:uppercase;
+}
+.prog .bd{padding:24px 24px 26px;display:flex;flex-direction:column;flex:1}
+.prog .bd h3{font-size:21px;font-weight:900;letter-spacing:.01em;display:flex;align-items:baseline;gap:10px}
+.prog .bd h3 em{font-family:var(--font-en);font-style:normal;font-size:11px;letter-spacing:.2em;color:var(--red);font-weight:500}
+.prog .bd p{color:var(--mut);font-size:13.8px;line-height:1.9;margin-top:12px;font-weight:300;flex:1}
+.prog .meta{
+  margin-top:20px;padding-top:16px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:8px 22px;
+}
+.prog .meta span{font-size:12px;color:var(--dim);letter-spacing:.05em}
+.prog .meta b{color:#e8dfd2;font-weight:500}
+
+/* ---------- 进阶路径 ---------- */
+#path{padding:clamp(76px,9vw,124px) 0 0}
+.path-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.step{
+  position:relative;padding:26px 24px 32px;border-right:1px solid var(--line);
+  transition:background .3s;
+}
+.step:last-child{border-right:0}
+.step:hover{background:var(--bg2)}
+.step::before{
+  content:"";position:absolute;top:-1px;left:0;height:2px;width:0;background:var(--red);
+  transition:width .45s;
+}
+.step:hover::before{width:100%}
+.step .n{font-family:var(--font-en);font-size:clamp(30px,3.4vw,44px);font-weight:600;color:var(--line2);line-height:1;letter-spacing:.02em}
+.step:hover .n{color:var(--red)}
+.step h3{margin-top:16px;font-size:16px;font-weight:900;letter-spacing:.03em}
+.step h3 em{display:block;font-family:var(--font-en);font-style:normal;font-size:10.5px;letter-spacing:.2em;color:var(--gold);font-weight:500;margin-top:5px}
+.step p{color:var(--mut);font-size:13px;line-height:1.85;margin-top:12px;font-weight:300;min-height:74px}
+.step .req{font-size:11.5px;color:var(--dim);letter-spacing:.04em;border-top:1px dashed var(--line);padding-top:10px;margin-top:6px}
+
+/* ---------- 教练团队 ---------- */
+#coaches{padding:clamp(76px,9vw,124px) 0 0}
+.coach-list{border-top:1px solid var(--line)}
+.coach{
+  display:grid;grid-template-columns:64px 1.1fr 1fr 150px 96px;gap:20px;align-items:center;
+  padding:26px 12px;border-bottom:1px solid var(--line);
+  transition:background .3s,padding .3s;
+}
+.coach:hover{background:linear-gradient(90deg,rgba(224,67,39,.08),transparent 60%);padding-left:20px}
+.coach .no{font-family:var(--font-en);font-size:12px;letter-spacing:.14em;color:var(--dim)}
+.coach .nm b{font-size:19px;font-weight:900;letter-spacing:.02em}
+.coach .nm span{display:block;font-family:var(--font-en);font-size:10px;letter-spacing:.24em;color:var(--gold);margin-top:4px}
+.coach .role{font-size:13.5px;color:#d3c8b9}
+.coach .role i{display:block;font-style:normal;font-size:11.5px;color:var(--dim);margin-top:4px;letter-spacing:.04em}
+.coach .tags{display:flex;flex-wrap:wrap;gap:6px}
+.coach .tags em{
+  font-style:normal;font-size:11px;color:var(--mut);border:1px solid var(--line2);
+  padding:3px 9px;letter-spacing:.06em;
+}
+.coach .yrs{font-family:var(--font-en);font-size:12px;letter-spacing:.12em;color:var(--gold);text-align:right}
+
+/* ---------- 场馆与课表 ---------- */
+#facility{padding:clamp(76px,9vw,124px) 0 0}
+.fac-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,4vw,60px);align-items:start}
+.fac-media{position:relative;overflow:hidden;border:1px solid var(--line)}
+.fac-media img{width:100%;height:clamp(300px,38vw,440px);object-fit:cover;filter:contrast(1.06) saturate(.9)}
+.fac-media .badge{
+  position:absolute;left:0;bottom:0;padding:12px 18px;background:rgba(11,10,9,.88);
+  border-top:1px solid rgba(243,237,226,.14);font-size:12px;letter-spacing:.12em;color:var(--mut);
+}
+.fac-list{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;border-top:1px solid var(--line)}
+.fac-list li{
+  list-style:none;display:flex;align-items:center;gap:10px;
+  padding:13px 0;border-bottom:1px solid var(--line);font-size:13.4px;color:#d9cfc1;
+}
+.fac-list li svg{width:13px;height:13px;flex:none;color:var(--red)}
+.fac-list li b{font-family:var(--font-en);font-size:11px;color:var(--dim);margin-left:auto;letter-spacing:.08em}
+.fac-note{margin-top:18px;font-size:12px;color:var(--dim);line-height:1.9}
+
+.sched-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:clamp(48px,6vw,76px) 0 18px}
+.sched-head h3{font-size:18px;font-weight:900;letter-spacing:.02em}
+.sched-head h3 em{font-family:var(--font-en);font-style:normal;font-size:10.5px;letter-spacing:.2em;color:var(--gold);margin-left:10px;font-weight:500}
+.sched-head p{font-size:12px;color:var(--dim)}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line)}
+table.sched{table-layout:fixed;width:100%;border-collapse:collapse;min-width:720px}
+table.sched col:nth-child(1){width:13%}
+table.sched col:nth-child(2){width:25%}
+table.sched col:nth-child(3){width:25%}
+table.sched col:nth-child(4){width:37%}
+table.sched thead th{
+  background:var(--panel2);text-align:left;font-size:11.5px;font-weight:500;
+  letter-spacing:.14em;color:var(--mut);padding:13px 16px;border-bottom:1px solid var(--line);
+  font-family:var(--font-en);text-transform:uppercase;
+}
+table.sched tbody td{
+  padding:14px 16px;font-size:13px;border-bottom:1px solid var(--line);vertical-align:top;color:#dbd2c4;
+}
+table.sched tbody tr:last-child td{border-bottom:0}
+table.sched tbody tr:hover td{background:rgba(224,67,39,.05)}
+table.sched td.d{font-weight:700;letter-spacing:.06em;color:var(--ink)}
+table.sched td.d span{display:block;font-family:var(--font-en);font-size:10px;color:var(--dim);letter-spacing:.16em;font-weight:400;margin-top:3px}
+table.sched td.b{color:var(--dim);font-size:12.2px}
+table.sched .tag{
+  display:inline-block;font-size:10.5px;padding:2px 7px;border:1px solid var(--line2);
+  color:var(--mut);letter-spacing:.06em;margin-left:6px;
+}
+table.sched .tag.red{border-color:rgba(224,67,39,.4);color:#f0745a}
+
+/* ---------- 会员方案 ---------- */
+#join-price{padding:clamp(76px,9vw,124px) 0 0}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px)}
+.price{
+  border:1px solid var(--line);background:var(--panel);padding:30px 26px 28px;
+  display:flex;flex-direction:column;position:relative;transition:.3s;
+}
+.price:hover{border-color:var(--line2);transform:translateY(-2px)}
+.price.hot{background:linear-gradient(180deg,#1d110e,#15120f 55%);border-color:rgba(224,67,39,.4)}
+.price.hot::before{
+  content:"最多人选";position:absolute;top:0;right:0;background:var(--red);color:#fff;
+  font-size:11px;letter-spacing:.12em;padding:5px 12px;
+}
+.price .pn{font-size:13px;letter-spacing:.14em;color:var(--mut)}
+.price .pn em{display:block;font-family:var(--font-en);font-style:normal;font-size:10px;color:var(--dim);margin-top:4px;letter-spacing:.2em}
+.price .pv{margin-top:18px;display:flex;align-items:baseline;gap:6px}
+.price .pv b{font-family:var(--font-en);font-size:44px;font-weight:600;letter-spacing:.01em;line-height:1}
+.price .pv span{font-size:12.5px;color:var(--dim)}
+.price .pv i{font-style:normal;font-size:13px;color:var(--gold);margin-left:2px}
+.price ul{margin-top:20px;border-top:1px solid var(--line);padding-top:16px;flex:1}
+.price ul li{list-style:none;font-size:12.8px;color:var(--mut);padding:6px 0;display:flex;gap:9px;align-items:flex-start;line-height:1.6}
+.price ul li svg{width:12px;height:12px;flex:none;margin-top:4px;color:var(--gold)}
+.price a{margin-top:22px;justify-content:center;width:100%}
+
+/* ---------- FAQ ---------- */
+#faq{padding:clamp(76px,9vw,124px) 0 0}
+.faq-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,70px);align-items:start}
+.faq-list{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{
+  width:100%;background:transparent;border:0;color:var(--ink);text-align:left;
+  display:flex;align-items:center;gap:16px;padding:19px 4px;font-size:14.5px;font-weight:500;
+  transition:color .25s;
+}
+.faq-q:hover{color:#fff}
+.faq-q .idx{font-family:var(--font-en);font-size:11px;color:var(--red);letter-spacing:.12em;flex:none;width:22px}
+.faq-q .ic{
+  margin-left:auto;flex:none;width:26px;height:26px;border:1px solid var(--line2);
+  display:flex;align-items:center;justify-content:center;transition:.3s;
+}
+.faq-q .ic svg{width:12px;height:12px;transition:transform .3s}
+.faq-item.open .faq-q .ic{background:var(--red);border-color:var(--red)}
+.faq-item.open .faq-q .ic svg{transform:rotate(45deg);color:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .38s ease}
+.faq-a p{color:var(--mut);font-size:13.4px;line-height:1.95;padding:0 4px 22px 38px;font-weight:300}
+.faq-item.open .faq-a{max-height:260px}
+
+/* ---------- 报名 ---------- */
+#join{padding:clamp(76px,9vw,124px) 0 clamp(60px,7vw,96px);position:relative}
+#join .bgline{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(70vw 46vw at 86% 8%,rgba(224,67,39,.11),transparent 62%),
+    radial-gradient(52vw 40vw at 4% 84%,rgba(200,148,75,.06),transparent 66%);
+}
+.join-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,5vw,72px);align-items:start;position:relative;z-index:2}
+.join-copy .lead{margin-top:22px}
+.join-copy .lead + .lead{margin-top:14px}
+.contact-list{margin-top:36px;border-top:1px solid var(--line)}
+.contact-list li{
+  list-style:none;display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);align-items:flex-start;
+}
+.contact-list li svg{width:15px;height:15px;flex:none;color:var(--red);margin-top:5px}
+.contact-list li .k{font-size:11.5px;color:var(--dim);letter-spacing:.16em}
+.contact-list li .v{font-size:14px;color:#e2d8c9;margin-top:3px;line-height:1.7}
+.contact-list li .v b{font-family:var(--font-en);letter-spacing:.04em;font-size:15px}
+.join-hint{margin-top:22px;display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border:1px solid rgba(200,148,75,.24);background:rgba(200,148,75,.05)}
+.join-hint svg{width:14px;height:14px;flex:none;color:var(--gold);margin-top:4px}
+.join-hint p{font-size:12.2px;color:var(--mut);line-height:1.85}
+
+.form{border:1px solid var(--line);background:var(--panel);padding:clamp(24px,3vw,34px)}
+.form .fh{display:flex;align-items:baseline;justify-content:space-between;gap:14px;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:22px}
+.form .fh b{font-size:16px;font-weight:900;letter-spacing:.03em}
+.form .fh span{font-family:var(--font-en);font-size:10px;letter-spacing:.2em;color:var(--dim)}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:11.5px;letter-spacing:.12em;color:var(--mut);margin-bottom:7px}
+.field label b{color:var(--red);font-weight:500;margin-left:3px}
+.field input,.field select,.field textarea{
+  width:100%;background:#0d0c0b;border:1px solid var(--line2);color:var(--ink);
+  font-family:inherit;font-size:13.5px;padding:12px 13px;outline:none;
+  transition:border-color .25s,background .25s;border-radius:0;
+}
+.field input::placeholder,.field textarea::placeholder{color:#6d6357}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:rgba(224,67,39,.6);background:#100e0d}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23776d60' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center}
+.field textarea{resize:vertical;min-height:82px;line-height:1.7}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form .sub{margin-top:6px}
+.form .sub .btn{width:100%;justify-content:center;padding:14px 20px}
+.form .fine{font-size:11px;color:var(--dim);line-height:1.8;margin-top:12px}
+
+/* ---------- 页脚 ---------- */
+footer{position:relative;z-index:2;border-top:1px solid var(--line);background:#080706;padding:clamp(40px,5vw,64px) 0 0}
+.f-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;padding-bottom:44px;border-bottom:1px solid var(--line)}
+.f-brand .brand{margin-bottom:18px}
+.f-brand p{color:var(--dim);font-size:12.5px;line-height:1.9;max-width:290px}
+.f-col h4{font-size:11.5px;letter-spacing:.18em;color:var(--mut);margin-bottom:14px;font-weight:500}
+.f-col a{display:block;font-size:12.8px;color:var(--dim);padding:5px 0;transition:color .25s}
+.f-col a:hover{color:var(--ink)}
+.f-bottom{
+  display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:center;
+  padding:22px 0;font-size:11.5px;color:#6d6357;letter-spacing:.04em;
+}
+.f-bottom .r{display:flex;gap:22px;flex-wrap:wrap}
+
+/* ---------- Toast ---------- */
+#toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,24px);z-index:80;
+  background:#111;border:1px solid rgba(200,148,75,.4);border-left:3px solid var(--gold);
+  padding:14px 22px;font-size:13px;color:var(--ink);box-shadow:0 18px 40px rgba(0,0,0,.6);
+  opacity:0;pointer-events:none;transition:.35s;max-width:min(92vw,460px);
+}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- 进场动画 ---------- */
+.rv{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- 响应式 ---------- */
+@media(max-width:1080px){
+  .nav-links{display:none}
+  #burger{display:flex}
+  .nav-cta{display:none}
+  .f-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){
+  .about-grid,.fac-grid,.faq-wrap,.join-grid{grid-template-columns:1fr}
+  .prog-grid{grid-template-columns:1fr}
+  .path-grid{grid-template-columns:1fr 1fr}
+  .step:nth-child(2){border-right:0}
+  .step:nth-child(1),.step:nth-child(2){border-bottom:1px solid var(--line)}
+  .coach{grid-template-columns:44px 1fr;gap:6px 16px;padding:20px 8px}
+  .coach .role{grid-column:2}
+  .coach .tags{grid-column:2}
+  .coach .yrs{grid-column:2;text-align:left}
+  .price-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2){border-right:0}
+  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid rgba(243,237,226,.1)}
+  .sec-head{flex-direction:column;align-items:flex-start;gap:18px}
+  .sec-head .r{text-align:left}
+  .scroll-hint{display:none}
+}
+@media(max-width:620px){
+  .nav-inner{height:66px}
+  #mnav{top:66px}
+  .brand img{width:36px;height:36px}
+  .brand .bt b{font-size:15px}
+  .brand .bt span{font-size:8.5px}
+  .hero-title{font-size:clamp(40px,12vw,64px);line-height:1}
+  .hero-sub{font-size:14px;margin-top:18px}
+  .hero-actions .btn{width:100%;justify-content:center}
+  .hero-foot{margin-top:44px}
+  .stat p{padding:18px 0}
+  .path-grid{grid-template-columns:1fr}
+  .step{border-right:0;border-bottom:1px solid var(--line)}
+  .step p{min-height:0}
+  .field-row{grid-template-columns:1fr}
+  .f-top{grid-template-columns:1fr;gap:26px}
+  .fac-list{grid-template-columns:1fr}
+  h2.title{font-size:clamp(26px,7vw,34px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .strip-track{animation:none}
+  .rv{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="狗头集团首页">
+      <img src="assets/logo-dog.png" alt="狗头集团标志">
+      <span class="bt"><b>狗头集团</b><span>GODT GROUP</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#about">集团简介</a>
+      <a href="#programs">训练体系</a>
+      <a href="#path">进阶路径</a>
+      <a href="#coaches">教练团队</a>
+      <a href="#facility">场馆与课表</a>
+      <a href="#faq">常见问答</a>
+    </div>
+    <span class="nav-tel">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>
+      400-188-2200
+    </span>
+    <a class="btn btn-red nav-cta" href="#join">预约试训
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <button id="burger" type="button" aria-label="打开菜单" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div id="mnav">
+  <a href="#about">集团简介<span>ABOUT</span></a>
+  <a href="#programs">训练体系<span>PROGRAMS</span></a>
+  <a href="#path">进阶路径<span>PATH</span></a>
+  <a href="#coaches">教练团队<span>COACHES</span></a>
+  <a href="#facility">场馆与课表<span>FACILITY</span></a>
+  <a href="#faq">常见问答<span>FAQ</span></a>
+  <a href="#join" class="btn btn-red">预约一节试训</a>
+</div>
+
+<header id="top">
+  <div class="hero-media">
+    <img src="assets/hero-bag.png" alt="狗头集团训练馆内，学员正在击打重型沙袋">
+  </div>
+  <div class="hero-inner">
+    <span class="hero-tag">EST. 2023 　<b>德阳 · 三座训练馆</b>　 STRIKING / GRAPPLING / STRENGTH</span>
+    <h1 class="hero-title">
+      练到能打<span class="line2">才叫练过</span>
+    </h1>
+    <p class="hero-sub">狗头集团不做健身房式的陪练。站立打击、地面缠斗、力量体能放进同一张训练计划表，每八周用一次实战课检验成果。零基础可入，但要按规矩来。</p>
+    <div class="hero-actions">
+      <a class="btn btn-red" href="#join">预约一节试训
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="#programs">看训练体系</a>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+  <div class="hero-foot">
+    <div class="stats">
+      <div class="stat"><b>3<small>馆</small></b><span>在营训练场馆</span></div>
+      <div class="stat"><b>9<small>位</small></b><span>全职教练</span></div>
+      <div class="stat"><b>480<small>+</small></b><span>长期在训学员</span></div>
+      <div class="stat"><b>12<small>年</small></b><span>累计教学经验</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="strip" aria-hidden="true">
+  <div class="strip-track">
+    <span class="strip-item">DISCIPLINE<i></i>SELFDEFENSE<i></i>STRENGTH<i></i>SPARRING<i></i>DISCIPLINE<i></i>SELFDEFENSE<i></i>STRENGTH<i></i>SPARRING<i></i></span>
+    <span class="strip-item">纪律<i></i>防身<i></i>体能<i></i>对抗<i></i>纪律<i></i>防身<i></i>体能<i></i>对抗<i></i></span>
+    <span class="strip-item">DISCIPLINE<i></i>SELFDEFENSE<i></i>STRENGTH<i></i>SPARRING<i></i>DISCIPLINE<i></i>SELFDEFENSE<i></i>STRENGTH<i></i>SPARRING<i></i></span>
+    <span class="strip-item">纪律<i></i>防身<i></i>体能<i></i>对抗<i></i>纪律<i></i>防身<i></i>体能<i></i>对抗<i></i></span>
+  </div>
+</div>
+
+<main>
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-copy">
+        <span class="sec-num">01 <i></i> ABOUT THE GROUP</span>
+        <h2 class="title">一个只认训练<br>结果的地方<em>/ GODT</em></h2>
+        <p class="lead">狗头集团 2023 年在德阳开第一间馆，最初只有 120 平米、四组沙袋、一个教练。三年后扩到三座训练馆，仍然保持小班制：一个班不超过 12 人，教练能叫出每个学员的名字，也知道谁上周缺了课。</p>
+        <p class="lead">我们不做"体验一次就办卡"的生意。新学员先上一节试训，教练评估体能、协调性和伤病史，再决定从哪个班开始。练得慢没关系，练错方向才费时间。</p>
+        <ul class="principles">
+          <li>
+            <b>01</b>
+            <div>
+              <h3>纪律<em>DISCIPLINE</em></h3>
+              <p>迟到、不戴护具、在垫上嬉闹，一律请下垫子。规矩不是摆样子，是让每个人都能安全地练下去。</p>
+            </div>
+          </li>
+          <li>
+            <b>02</b>
+            <div>
+              <h3>对抗<em>SPARRING</em></h3>
+              <p>技术只在实战里成立。每个阶段结束都有条件实战，护具齐全、强度分级，打不动可以喊停。</p>
+            </div>
+          </li>
+          <li>
+            <b>03</b>
+            <div>
+              <h3>体能<em>STRENGTH</em></h3>
+              <p>力量是一切技术的地基。深蹲、硬拉、推举、核心，按周期表走，不靠临时抱佛脚。</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <figure class="about-media">
+        <img src="assets/train-grapple.png" alt="两名学员在地面缠斗训练中对抗">
+        <div class="cap"><span>地面缠斗 · 基础班第 6 周</span><b>GODT / 2026</b></div>
+      </figure>
+    </div>
+  </div>
+</section>
+<!-- ===== 02 训练体系 ===== -->
+<section id="programs">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="l">
+        <span class="sec-num">02 <i></i> PROGRAMS</span>
+        <h2 class="title">四套课<br>一个目的：能用<em>/ 4 PROGRAMS</em></h2>
+      </div>
+      <div class="r">
+        <p>每班 12 人上限，按基础分班。四套课可以单练，也可以组合成一张周训练表——教练会按你的目标排课。</p>
+      </div>
+    </div>
+    <div class="prog-grid">
+      <article class="prog rv">
+        <div class="ph">
+          <img src="assets/hero-bag.png" alt="学员进行站立打击训练">
+          <span class="no">01</span>
+          <span class="en">STRIKING / 站立打击</span>
+        </div>
+        <div class="bd">
+          <h3>站立打击<em>STRIKING</em></h3>
+          <p>拳法、腿法、步法与防守反击。前四周只练站姿、护架和直拳，第五周才开始上手靶。打空拳比打错拳强，我们宁可你慢一点。</p>
+          <div class="meta">
+            <span>周期 <b>12 周</b></span>
+            <span>每周 <b>3 次</b></span>
+            <span>自备 <b>护齿 / 缠手带</b></span>
+          </div>
+        </div>
+      </article>
+      <article class="prog rv">
+        <div class="ph">
+          <img src="assets/train-grapple.png" alt="两名学员在地面缠斗">
+          <span class="no">02</span>
+          <span class="en">GRAPPLING / 地面缠斗</span>
+        </div>
+        <div class="bd">
+          <h3>地面缠斗<em>GRAPPLING</em></h3>
+          <p>摔、拿、锁与逃脱。道服和无道服两条线，第一课不是学降服，是学被摔倒时怎么安全落地、被压住时怎么呼吸。</p>
+          <div class="meta">
+            <span>周期 <b>16 周</b></span>
+            <span>每周 <b>2 次</b></span>
+            <span>道服 <b>可租借</b></span>
+          </div>
+        </div>
+      </article>
+      <article class="prog rv">
+        <div class="ph">
+          <img src="assets/train-strength.png" alt="力量训练区的杠铃与配重">
+          <span class="no">03</span>
+          <span class="en">STRENGTH / 力量与体能</span>
+        </div>
+        <div class="bd">
+          <h3>力量与体能<em>STRENGTH</em></h3>
+          <p>深蹲、硬拉、推举、壶铃与核心。按 4 周一个小周期排表，每次训练的重量和组数都记在本子上，不靠感觉加片。</p>
+          <div class="meta">
+            <span>周期 <b>长期</b></span>
+            <span>每周 <b>2–3 次</b></span>
+            <span>含 <b>体测与动作纠正</b></span>
+          </div>
+        </div>
+      </article>
+      <article class="prog rv">
+        <div class="ph">
+          <img src="assets/train-youth.png" alt="青少年防身课程中的站姿训练">
+          <span class="no">04</span>
+          <span class="en">YOUTH / 青少年防身</span>
+        </div>
+        <div class="bd">
+          <h3>青少年防身<em>YOUTH</em></h3>
+          <p>8–14 岁。站姿、护架、脱身、呼救和报警流程。这个班不对练重击，先教会孩子在冲突里保护自己、离开现场。</p>
+          <div class="meta">
+            <span>周期 <b>10 周</b></span>
+            <span>每周 <b>1 次</b></span>
+            <span>家长 <b>可旁听</b></span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 03 进阶路径 ===== -->
+<section id="path">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="l">
+        <span class="sec-num">03 <i></i> TRAINING PATH</span>
+        <h2 class="title">从第一次上垫子<br>到能带新人<em>/ 4 STEPS</em></h2>
+      </div>
+      <div class="r">
+        <p>不跳级。每一级都有明确的结业标准和门槛，教练签字才进下一阶段。</p>
+      </div>
+    </div>
+    <div class="path-grid">
+      <div class="step rv">
+        <span class="n">01</span>
+        <h3>试训评估<em>TRIAL</em></h3>
+        <p>一节 60 分钟体验课，加一次基础体能评估。教练看你协调性、柔韧和伤病史，给出起点建议。</p>
+        <div class="req">门槛：无 · 提前一天预约</div>
+      </div>
+      <div class="step rv">
+        <span class="n">02</span>
+        <h3>基础班<em>FOUNDATION</em></h3>
+        <p>8–12 周。站姿、护架、基础拳腿与地面位置。这个阶段不安排实战，先把动作做对。</p>
+        <div class="req">门槛：体检无运动禁忌</div>
+      </div>
+      <div class="step rv">
+        <span class="n">03</span>
+        <h3>实战班<em>SPARRING</em></h3>
+        <p>条件实战，护具齐全，强度分三级。教练在场控制节奏，任何一方可以随时喊停。</p>
+        <div class="req">门槛：基础班结业 + 自备护具</div>
+      </div>
+      <div class="step rv">
+        <span class="n">04</span>
+        <h3>竞赛与助教<em>COMPETE</em></h3>
+        <p>可进馆队参加业余比赛，或转做助教带基础班。带人是最好的复习。</p>
+        <div class="req">门槛：教练推荐 + 满 1 年</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 04 管理层 ===== -->
+<section id="ceo">
+  <div class="wrap">
+    <div class="ceo-grid">
+      <figure class="ceo-media rv">
+        <img src="assets/ceo-portrait.png" alt="狗头集团创始人、现任首席执行官">
+        <div class="frame-corner"></div>
+        <div class="sig">
+          <div>
+            <b>创始人 · 首席执行官</b>
+            <span>FOUNDER &amp; CHIEF EXECUTIVE</span>
+          </div>
+          <em>GODT / EST.2023</em>
+        </div>
+      </figure>
+      <div class="ceo-copy">
+        <span class="sec-num">04 <i></i> LEADERSHIP</span>
+        <h2 class="title">开馆的人<br>也得天天上垫子<em>/ CEO</em></h2>
+        <p class="lead">狗头集团由现任 CEO 在 2023 年发起。第一间馆只有一张垫子、四组沙袋，固定来练的四个人。他定下的规矩到现在没改：不卖年卡、不承诺速成、教练必须自己上垫子。</p>
+        <p class="lead">现在三座馆的课表仍然由他每周过一遍——哪个班缺人、哪个教练调课、哪个新学员基础太差该退回去重练，他都盯。</p>
+        <div class="quote">
+          <p>别先想着打赢谁。先把站姿站对，把护架举起来，把每周三次的训练掉。</p>
+          <div class="who"><i></i>狗头集团创始人 · 现任首席执行官</div>
+        </div>
+        <div class="ceo-facts">
+          <div class="f"><b>2023</b><span>创立年份</span></div>
+          <div class="f"><b>3 座</b><span>在营训练馆</span></div>
+          <div class="f"><b>480+</b><span>长期在训学员</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 05 教练团队 ===== -->
+<section id="coaches">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="l">
+        <span class="sec-num">05 <i></i> COACHES</span>
+        <h2 class="title">教你的这些人<br>自己也在练<em>/ 9 COACHES</em></h2>
+      </div>
+      <div class="r">
+        <p>九位全职教练，全部持有急救证。排班表贴在更衣室门口，谁上哪节课一目了然。</p>
+      </div>
+    </div>
+    <div class="coach-list">
+      <div class="coach rv">
+        <span class="no">01</span>
+        <div class="nm"><b>陈野</b><span>CHIEF COACH</span></div>
+        <div class="role">总教练<i>站立打击 · 实战课</i></div>
+        <div class="tags"><em>拳击</em><em>散打</em><em>体能</em></div>
+        <div class="yrs">11 YRS</div>
+      </div>
+      <div class="coach rv">
+        <span class="no">02</span>
+        <div class="nm"><b>罗一鸣</b><span>HEAD OF GRAPPLING</span></div>
+        <div class="role">缠斗主教练<i>地面缠斗 · 逃脱技术</i></div>
+        <div class="tags"><em>柔术</em><em>摔跤</em><em>道服 / 无道服</em></div>
+        <div class="yrs">8 YRS</div>
+      </div>
+      <div class="coach rv">
+        <span class="no">03</span>
+        <div class="nm"><b>何劲</b><span>STRENGTH COACH</span></div>
+        <div class="role">体能教练<i>力量与体能 · 周期计划</i></div>
+        <div class="tags"><em>深蹲</em><em>硬拉</em><em>动作纠正</em></div>
+        <div class="yrs">7 YRS</div>
+      </div>
+      <div class="coach rv">
+        <span class="no">04</span>
+        <div class="nm"><b>周小雨</b><span>YOUTH PROGRAM</span></div>
+        <div class="role">青少年课程主管<i>青少年防身 · 安全课</i></div>
+        <div class="tags"><em>护架</em><em>脱身</em><em>家长沟通</em></div>
+        <div class="yrs">6 YRS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 06 场馆与课表 ===== -->
+<section id="facility">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="l">
+        <span class="sec-num">06 <i></i> FACILITY &amp; SCHEDULE</span>
+        <h2 class="title">场地不豪华<br>但该有的都有<em>/ 3 GYMS</em></h2>
+      </div>
+      <div class="r">
+        <p>主馆在泰山南路体育产业园，另两座分馆分别在高新区和城北。三馆课表通用，会员可跨馆上课。</p>
+      </div>
+    </div>
+    <div class="fac-grid">
+      <figure class="fac-media rv">
+        <img src="assets/train-strength.png" alt="狗头集团力量训练区">
+        <div class="badge">主馆 · 力量训练区 / MAIN GYM</div>
+      </figure>
+      <div>
+        <ul class="fac-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>标准擂台 <b>1 座</b></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>重型沙袋 <b>12 组</b></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>软垫训练区 <b>200 ㎡</b></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>力量架与杠铃 <b>6 套</b></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>壶铃 / 战绳 / 药球 <b>全套</b></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>更衣与淋浴 <b>2 层</b></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>护具租借 <b>免费</b></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>停车位 <b>30 个</b></li>
+        </ul>
+        <p class="fac-note">首次到馆请提前 15 分钟，前台登记后由教练带你熟悉场地。馆内禁止穿鞋上垫，拖鞋自备或租借。</p>
+      </div>
+    </div>
+
+    <div class="sched-head">
+      <h3>常规课程表<em>WEEKLY SCHEDULE</em></h3>
+      <p>主馆课表 · 分馆略有调整，以馆内公告为准</p>
+    </div>
+    <div class="tbl-wrap rv">
+      <table class="sched">
+        <colgroup><col><col><col><col></colgroup>
+        <thead>
+          <tr><th>星期 / DAY</th><th>早课 07:00–08:30</th><th>晚课 19:00–21:00</th><th>说明 / NOTES</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="d">周一<span>MON</span></td><td>站立打击 · 基础</td><td>力量与体能<span class="tag">新手友好</span></td><td class="b">基础班第 1–4 周只练站姿与护架</td></tr>
+          <tr><td class="d">周二<span>TUE</span></td><td>地面缠斗 · 基础</td><td>条件实战<span class="tag red">限实战班</span></td><td class="b">实战课需自备护齿、护裆、拳套</td></tr>
+          <tr><td class="d">周三<span>WED</span></td><td>站立打击 · 进阶</td><td>青少年防身<span class="tag">8–14 岁</span></td><td class="b">青少年班独立场地，家长可旁听</td></tr>
+          <tr><td class="d">周四<span>THU</span></td><td>力量与体能</td><td>地面缠斗 · 进阶</td><td class="b">进阶班需基础班结业</td></tr>
+          <tr><td class="d">周五<span>FRI</span></td><td>条件实战</td><td>站立打击 · 基础</td><td class="b">周五实战强度分三级，可自选</td></tr>
+          <tr><td class="d">周六<span>SAT</span></td><td>青少年防身 10:00</td><td>综合体能 / 公开课</td><td class="b">公开课对非会员开放，需预约</td></tr>
+          <tr><td class="d">周日<span>SUN</span></td><td>开放垫 · 自由训练</td><td>休息</td><td class="b">教练在场，不授课，可自行打沙袋</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 07 会员方案 ===== -->
+<section id="price">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="l">
+        <span class="sec-num">07 <i></i> MEMBERSHIP</span>
+        <h2 class="title">先试一次<br>再决定要不要练下去<em>/ PRICING</em></h2>
+      </div>
+      <div class="r">
+        <p>不卖年卡，不做自动续费。所有价格含场地、器材与护具租借，私教另计。</p>
+      </div>
+    </div>
+    <div class="price-grid">
+      <div class="price rv">
+        <div class="pn">体验卡<em>TRIAL PASS</em></div>
+        <div class="pv"><b>99</b><i>元</i><span>/ 单次</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>60 分钟体验课</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>基础体能评估</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>护具免费租借</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>教练给出起点建议</li>
+        </ul>
+        <a class="btn btn-ghost" href="#join">预约体验</a>
+      </div>
+      <div class="price hot rv">
+        <div class="pn">常规卡<em>MONTHLY</em></div>
+        <div class="pv"><b>680</b><i>元</i><span>/ 月</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>团课不限次，三馆通用</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>力量区自由使用</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>每月一次体测与计划调整</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>护具与道服免费租借</li>
+        </ul>
+        <a class="btn btn-red" href="#join">预约试训</a>
+      </div>
+      <div class="price rv">
+        <div class="pn">一对一私教<em>PRIVATE</em></div>
+        <div class="pv"><b>300</b><i>元</i><span>/ 节 · 10 节起</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>按个人目标排课</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>技术录像与逐帧纠正</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>备赛 / 防身专项可选</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>可指定教练与时间</li>
+        </ul>
+        <a class="btn btn-ghost" href="#join">咨询私教</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 08 FAQ ===== -->
+<section id="faq">
+  <div class="wrap">
+    <div class="faq-wrap">
+      <div>
+        <span class="sec-num">08 <i></i> FAQ</span>
+        <h2 class="title">来之前<br>你可能想问<em>/ ANSWERS</em></h2>
+        <p class="lead" style="margin-top:22px">还有别的问题，直接打 400-188-2200，前台工作时间内都有人接。</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span class="idx">01</span>完全零基础，能来吗？
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-a"><p>能。大部分学员第一次来都没碰过沙袋。试训课会从站姿和呼吸开始，教练按你的体能分到基础班，不会直接把人丢进实战。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span class="idx">02</span>会不会受伤？
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-a"><p>对抗项目不可能零风险，所以我们把可控的部分做足：护具强制、强度分级、教练在场、随时喊停。基础班前八周不安排实战。有旧伤请提前告知。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span class="idx">03</span>需要自己买护具吗？
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-a"><p>体验和基础班阶段，拳套、护齿、护胫馆内免费租借。进实战班后建议自备护齿和护裆，这两样贴身用品不外借。道服可租，也可按教练给的清单自己买。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span class="idx">04</span>有女学员吗？
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-a"><p>有，目前约占三成。团课不分性别，实战配对会按体重和水平匹配。更衣与淋浴分区，女学员可预约女教练的一对一课程。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span class="idx">05</span>试训怎么预约？
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-a"><p>填下面的报名表，或直接打 400-188-2200。建议提前一天约，方便教练按你的基础安排对应班级。第一次到馆提前 15 分钟登记。</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 09 报名 ===== -->
+<section id="join">
+  <div class="bgline"></div>
+  <div class="wrap">
+    <div class="join-grid">
+      <div class="join-copy">
+        <span class="sec-num">09 <i></i> JOIN US</span>
+        <h2 class="title">先来上一节<br>再谈要不要办卡<em>/ BOOK A TRIAL</em></h2>
+        <p class="lead">留下联系方式，前台会在一个工作日内跟你确认时间。不推销年卡，也不打电话追着你办卡。</p>
+        <ul class="contact-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-4.5-12-9-12S3 3 3 10c0 5 9 11 9 11s9-6 9-11z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div><div class="k">主馆地址 / MAIN GYM</div><div class="v">德阳市旌阳区 泰山南路体育产业园 A2 馆<br><span style="color:#8d8172;font-size:12.5px">高新区、城北分馆地址请电话索取</span></div></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1-8.8 2 2 0 0 1 2-1.9h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>
+            <div><div class="k">报名与咨询 / HOTLINE</div><div class="v"><b>400-188-2200</b>　09:00–21:00</div></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <div><div class="k">开放时间 / HOURS</div><div class="v">周一至周六 07:00–21:30　周日 09:00–18:00</div></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+            <div><div class="k">邮箱 / EMAIL</div><div class="v">train@godtgroup.cn</div></div>
+          </li>
+        </ul>
+        <div class="join-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+          <p>未满 16 岁需监护人陪同到馆并签署知情同意书。有心脏病、高血压、近期手术史请提前说明。</p>
+        </div>
+      </div>
+
+      <form class="form" id="joinForm" novalidate>
+        <div class="fh"><b>预约试训</b><span>BOOK A SESSION</span></div>
+        <div class="field">
+          <label for="f-name">姓名<b>*</b></label>
+          <input id="f-name" name="name" type="text" placeholder="怎么称呼你" required autocomplete="name">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-tel">手机号<b>*</b></label>
+            <input id="f-tel" name="tel" type="tel" placeholder="11 位手机号" required autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="f-age">年龄</label>
+            <input id="f-age" name="age" type="number" min="8" max="80" placeholder="例如 24">
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-prog">想练什么<b>*</b></label>
+          <select id="f-prog" name="program" required>
+            <option value="">选择课程方向</option>
+            <option>站立打击 · 拳法腿法</option>
+            <option>地面缠斗 · 摔拿锁</option>
+            <option>力量与体能</option>
+            <option>青少年防身（8–14 岁）</option>
+            <option>还没想好，先让教练看看</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-time">方便的时间</label>
+          <select id="f-time" name="time">
+            <option value="">不限，听安排</option>
+            <option>工作日早课 07:00–08:30</option>
+            <option>工作日晚课 19:00–21:00</option>
+            <option>周六上午</option>
+            <option>周末白天</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-note">备注</label>
+          <textarea id="f-note" name="note" placeholder="旧伤、基础情况，或想先问的问题"></textarea>
+        </div>
+        <div class="sub">
+          <button class="btn btn-red" type="submit">提交预约
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <p class="fine">提交即表示同意我们仅用该联系方式与你确认试训时间，不做营销推送。</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-brand">
+        <a class="brand" href="#top">
+          <img src="assets/logo-dog.png" alt="狗头集团标志">
+          <span class="bt"><b>狗头集团</b><span>GODT GROUP</span></span>
+        </a>
+        <p>狗头集团 GODT Group<br>格斗 · 体能 · 防身训练机构<br>德阳 · 三座训练馆</p>
+      </div>
+      <div class="f-col">
+        <h4>训练 / TRAINING</h4>
+        <a href="#programs">站立打击</a>
+        <a href="#programs">地面缠斗</a>
+        <a href="#programs">力量与体能</a>
+        <a href="#programs">青少年防身</a>
+      </div>
+      <div class="f-col">
+        <h4>了解 / ABOUT</h4>
+        <a href="#about">集团简介</a>
+        <a href="#path">进阶路径</a>
+        <a href="#coaches">教练团队</a>
+        <a href="#facility">场馆与课表</a>
+      </div>
+      <div class="f-col">
+        <h4>联系 / CONTACT</h4>
+        <a href="tel:4001882200">400-188-2200</a>
+        <a href="mailto:train@godtgroup.cn">train@godtgroup.cn</a>
+        <a href="#join">预约试训</a>
+        <a href="#faq">常见问答</a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 狗头集团 GODT Group. 保留所有权利。</span>
+      <div class="r">
+        <span>德阳市旌阳区 泰山南路体育产业园 A2 馆</span>
+        <span>GODT / EST.2023</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* 导航滚动状态 */
+  var nav = document.getElementById("nav");
+  function onScroll(){
+    if(window.scrollY > 40){ nav.classList.add("solid"); }
+    else { nav.classList.remove("solid"); }
+  }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+
+  /* 移动端菜单 */
+  var burger = document.getElementById("burger");
+  var mnav = document.getElementById("mnav");
+  burger.addEventListener("click", function(){
+    var open = mnav.classList.toggle("open");
+    burger.classList.toggle("on", open);
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.style.overflow = open ? "hidden" : "";
+  });
+  mnav.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){
+      mnav.classList.remove("open");
+      burger.classList.remove("on");
+      burger.setAttribute("aria-expanded","false");
+      document.body.style.overflow = "";
+    });
+  });
+
+  /* FAQ 手风琴 */
+  document.querySelectorAll(".faq-item").forEach(function(item){
+    var q = item.querySelector(".faq-q");
+    q.addEventListener("click", function(){
+      var isOpen = item.classList.contains("open");
+      document.querySelectorAll(".faq-item").forEach(function(o){
+        o.classList.remove("open");
+        o.querySelector(".faq-q").setAttribute("aria-expanded","false");
+      });
+      if(!isOpen){
+        item.classList.add("open");
+        q.setAttribute("aria-expanded","true");
+      }
+    });
+  });
+
+  /* 进场动画 */
+  var revealables = document.querySelectorAll(".rv");
+  if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:"0px 0px -40px 0px"});
+    revealables.forEach(function(el){ io.observe(el); });
+  } else {
+    revealables.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* Toast */
+  var toast = document.getElementById("toast");
+  var toastTimer = null;
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove("show"); }, 4200);
+  }
+
+  /* 报名表单 */
+  var form = document.getElementById("joinForm");
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var name = form.querySelector("#f-name").value.trim();
+    var tel = form.querySelector("#f-tel").value.trim();
+    var prog = form.querySelector("#f-prog").value;
+    if(!name){ showToast("请先填写姓名，方便前台称呼你。"); form.querySelector("#f-name").focus(); return; }
+    if(!/^1[3-9]\d{9}$/.test(tel)){ showToast("手机号看起来不对，请填 11 位号码。"); form.querySelector("#f-tel").focus(); return; }
+    if(!prog){ showToast("请选择一个课程方向。"); form.querySelector("#f-prog").focus(); return; }
+    showToast("收到，" + name + "。前台会在一个工作日内联系你确认试训时间。");
+    form.reset();
+  });
+})();
+</script>
+</body>
+</html>
